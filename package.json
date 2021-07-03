@@ -1,0 +1,37 @@
+{
+<<<<<<< HEAD
+  "name": "Alumnubhav",
+  "version": "1.0.0",
+  "description": "",
+=======
+  "name": "alumnubhav",
+  "version": "1.0.0",
+  "description": "Alumnubhav Project 1.0",
+>>>>>>> origin/main
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-Zlogs/Alumnubhav.git"
+  },
+<<<<<<< HEAD
+  "keywords": [],
+  "author": "",
+=======
+  "author": "Team-Zlogs",
+>>>>>>> origin/main
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Team-Zlogs/Alumnubhav/issues"
+  },
+<<<<<<< HEAD
+  "homepage": "https://github.com/Team-Zlogs/Alumnubhav#readme"
+=======
+  "homepage": "https://github.com/Team-Zlogs/Alumnubhav#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+>>>>>>> origin/main
+}
