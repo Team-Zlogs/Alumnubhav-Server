@@ -1,0 +1,20 @@
+// all api proper format documentation..
+
+
+// POST 
+
+
+
+
+
+// GET
+
+
+
+
+// UPDATE / PUT
+
+
+
+
+// DELETE 
