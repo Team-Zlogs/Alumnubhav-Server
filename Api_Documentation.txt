@@ -1,20 +1,217 @@
-// all api proper format documentation..
+// Api proper format documentation..
+
+----------------------------------------------------------
+
+// Register Routes
+
+>> /api/register/user
+	Type: POST
+	Body:{
+			"email": "abc@gmail.com",
+			"password": "123",
+		}
+	Response: 
+		1. success
+			i) redirect to homepage or setup-profile page
+			ii) JWT(to be saved in the localStorage and to be used as request header bearer token)
+		2. Failure , show error message 
+
+>> /api/register/admin   (if required)
+	Type: POST
+	Body:{
+			"email": "abc@gmail.com",
+			"password": "123",
+		}
+	Response: 
+		1. success, redirect to login page
+		2. Failure, show error message
+
+----------------------------------------------------------
+
+// Setup-Profile Routes
+
+>> /api/register/setupProfile  
+	Type: POST
+	Body:{  
+			"_id": "60eca1db039c935460c17a8f",
+			"username": "Izac12",
+			"companyName": "Google",
+			"jobRole": "Full Stack-Developer",
+			"technology": [
+				{
+					"tag": "c++"
+				},
+				{
+					"tag": "java"
+				},
+				{
+					"tag": "python"
+				}
+			],
+			"avatar": "man5"
+		}
+	Response: 
+		1. success:
+		   i) redirect to home page
+		   ii) JWT(to be saved in the localStorage and to be used as request header bearer token)
+		2. failure , show error message
+
+----------------------------------------------------------
+
+// Login Routes
+
+>> /api/login/user
+	Type: POST
+	Body:{
+			"email":"abc@gmail.com",
+			"password":"123"
+		}
+	Response: 
+		1. success:
+		   i) redirect to home page
+		   ii) JWT(to be saved in the localStorage and to be used as request header bearer token)
+		2. failure , show error message
+
+>> /api/login/admin 
+	Type: POST
+	Body:{
+			"email": "abc@gmail.com",
+			"password": "123",
+		}
+	Response: 
+		1. success:
+		   i) redirect to home page
+		   ii) JWT(to be saved in the localStorage and to be used as request header bearer token)
+		2. failure , show error message		 
+
+----------------------------------------------------------
+
+// Forgot password Routes
+
+step1. request for OTP
+step2. receive OTP email
+step3. verify OTP
+step4. receive temporary token 
+step5. set new password
+step6. receive confirmation email
+
+>> /api/forgotpassword/otp
+	Type: POST
+	Body: {
+			"role": "user" || "admin"
+			"email":"abc@gmail.com"
+		}
+	Response: 
+		1. OTP via email(OTP in response is also available but only for testing)
+		2. failure , show error message
+
+>> /api/forgotpassword/verify
+	Type: POST
+	Body: {
+			"otp":"46664"
+		}
+	Response: 
+		1. success, temporary token that must be used only for password reset
+		2. failure , show error message
+
+>> /api/forgotpassword/password/user
+	Type: POST
+	Header: Authentication bearer token
+	Body: {
+			"email":"abc@gmail.com",
+			"password":"12345"
+		}
+	Response: 
+		1. successful password reset email, redirect to login page
+		2. failure , show error message
+
+>> /api/forgotpassword/password/admin
+	Type: POST
+	Header: Authentication bearer token
+	Body: {
+			"email":"abc@gmail.com",
+			"password":"12345"
+		}
+	Response: 
+		1. successful password reset email, redirect to login page
+		2. failure , show error message
+
+----------------------------------------------------------
+
+// Search routes
+
+>>/api/search/tag?tech=<tech_name>
+	Type: GET
+	Params: null
+	Query String: 
+		key: tech
+		value: <tech_name>
+	Header: Authentication bearer token
+	Body: null
+	Response:
+		1. success
+		2. failure
+
+>>/api/search/company?company=<company_name>
+	Type: GET
+	Params: null
+	Query String: 
+		key: company
+		value: <company_name>
+	Header: Authentication bearer token
+	Body: null
+	Response:
+		1. success
+		2. failure
+
+------------------------------------------------------------
+
+// User routes
+
+>> /api/user/all
+	Type: GET
+	Params: null
+	Header: Authentication bearer token
+	Body: null
+	Response: 
+		1. success , list of all customers
+
+>> /api/user/:id
+	Type: GET
+	Params: id
+	Header: Authentication bearer token
+	Body: null
+	Response: 
+		1. success , single document 
+		2. failure
+
+>> /api/user/email
+	Type: GET
+	Params: null
+	Header: Authentication bearer token
+	Body:{
+			"email":"abc@gmail.com"
+		}
+	Response:
+		1. success , single document 
+		2. failure
+
+>> /api/user/update/:id
+	Type: PATCH
+	Params: id
+	Header: Authentication bearer token
+	Body:{
+		// depends what you want to update...for eg :
+	    "company": "Amazon",
+	    "jobRole": "Data Entry"
+	}
+	note: the request body may differ depending on the fields to be updated
+	Response: 
+		1. success
+		2. failure
+
+------------------------------------------------------------
 
 
-// POST 
 
 
-
-
-
-// GET
-
-
-
-
-// UPDATE / PUT
-
-
-
-
-// DELETE 

@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
                     })
                 } else {
                     const decoded = jwt.decode(token);
-                    if (decoded.role === "admin") {
+                    if (decoded.role === "user" || decoded.role === "admin") {
                         next()
                     } else {
                         res.status(401).json({
