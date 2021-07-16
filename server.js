@@ -14,7 +14,7 @@ app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(__dirname + './app/public/assets'))
+// app.use(express.static(__dirname + './app/public/assets'))
 
 //connect to database
 const uri = process.env.DB_CONNECTION_STRING;
@@ -49,7 +49,7 @@ app.use("/api/search", searchRoutes);
 // standard company name list route... - for auto-complete
 // blog and resources route..
 // model - only avatar with userId...
-
-app.listen(9000, () => {
-  console.log("app running on port:" + 9000);
+const port = process.env.PORT || 3000
+app.listen(port, () => {
+  console.log("app running on port:" + port);
 });
